@@ -2,6 +2,7 @@ library Year;
 
 import 'Month.dart';
 import 'CheckIn.dart';
+import 'Location.dart';
 
 class Year {
   int year;
@@ -45,13 +46,13 @@ class CheckInYears {
   }
 
 
-  bool addCheckIn(CheckIn checkIn) {
+  bool addCheckIn(Location location ,CheckIn checkIn) {
     Year year = new Year(checkIn.dateTime.year);
     if (years[year] == null) {
       CheckInMonths checkInMonths = new CheckInMonths();
       years.putIfAbsent(year, () => checkInMonths);
     }
-    years[year].addCheckIn(checkIn);
+    years[year].addCheckIn(location, checkIn);
 
     return true;
   }

@@ -50,7 +50,7 @@ class Location {
       locations.putIfAbsent(location, () => checkInYears);
 
     }
-    locations[location].addCheckIn(checkIn);
+    locations[location].addCheckIn(location, checkIn);
     return true;
   }
 

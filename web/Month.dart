@@ -1,6 +1,7 @@
 library Month;
 
 import 'CheckIn.dart';
+import 'Location.dart';
 
 class Month {
   int month;
@@ -42,13 +43,13 @@ class CheckInMonths {
     return allCheckIns;
   }
 
-  bool addCheckIn(CheckIn checkIn) {
+  bool addCheckIn(Location location, CheckIn checkIn) {
     Month month = new Month(checkIn.dateTime.month);
     if (months[month] == null) {
       CheckInList checkInList = new CheckInList();
       months.putIfAbsent(month, () => checkInList);
     }
-    months[month].addCheckIn(checkIn);
+    months[month].addCheckIn(location, checkIn);
     return false;
   }
 

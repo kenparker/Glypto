@@ -1,13 +1,16 @@
 library CheckIn;
 
 import 'Location.dart';
+import 'ManageLocalStorage.dart';
 
 class CheckInList {
 
   List<CheckIn> checkInList = new List();
+  //ManageLocalStorage mlc = new ManageLocalStorage();
 
-  bool addCheckIn(CheckIn checkIn) {
+  bool addCheckIn(Location location, CheckIn checkIn) {
     checkInList.add(checkIn);
+   // mlc.addCheckIn(location.location, checkIn);
     return true;
   }
 
