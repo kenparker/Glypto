@@ -6,31 +6,24 @@ import 'Controller.dart';
 @CustomTag('main-app')
 class MainApp extends PolymerElement {
 
-  Controller glypto = new Controller();
+  Controller controller = new Controller();
 
-  @observable int counter = 0;
+  @observable int counter = myConstructor();
   @observable int totalGlypto = 0;
-
-  factory MainApp.custom() {
-    MainApp mainApp = new Element.tag('main-app');
-    mainApp.myConstructor();
-    return mainApp;
-  }
 
   /// Constructor used to create instance of MainApp.
   MainApp.created() : super.created();
 
-  MainApp ma = new MainApp.custom();
 
-  void myConstructor() {
+    static int myConstructor() {
     print("myConstructor Started");
-    counter = 1;
+    return controller.getTotal();
   }
 
   void setupCheckIn(Event e, var detail, Node target) {
     print("Setup started");
-    glypto.checkInGlypto();
-    counter = glypto.getTotal();
+    controller.checkInGlypto();
+    counter = controller.getTotal();
   }
 
   void resetCheckIn(Event e, var detail, Node target) {
@@ -39,8 +32,8 @@ class MainApp extends PolymerElement {
 
   void loadCheckIn(Event e, var detail, Node target) {
     print("load started");
-    glypto.loadData();
-    counter = glypto.getTotal();
+    controller.loadData();
+    counter = controller.getTotal();
   }
 
 
